@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles.css */
+.background {
+  background-image: url("/images/background.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* styles.css - بوردر مشخص، دایره محو */
+.corner-effect {
+  position: relative;
+  isolation: isolate;
+}
+
+/* افکت بوردر اصلی - مشخص و شفاف */
+.corner-effect::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  padding: 2px; /* ضخامت بوردر */
+  background: radial-gradient(
+    150px circle at var(--mouse-x, 30%) var(--mouse-y, 30%),
+    rgba(255, 255, 255, 0.9) 0%,
+    /* مرکز روشن */ rgba(255, 255, 255, 0.6) 30%,
+    /* نزدیک لبه */ rgba(255, 255, 255, 0.2) 70%,
+    /* محو شدن */ transparent 90%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  /* بدون فیلتر بلور برای بوردر */
+}
+
+/* افکت دایره محو - فقط برای نور زمینه */
+.corner-effect::after {
+  content: "";
+  position: absolute;
+  inset: -10px; /* پخش در فضای بیشتر */
+  border-radius: 2rem;
+  background: radial-gradient(
+    130px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.25) 0%,
+    /* کم‌رنگ */ rgba(255, 255, 255, 0.1) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(12px); /* دایره خیلی محو */
+  z-index: 4;
+}
+
+.corner-effect:hover::before {
+  opacity: 1; /* بوردر کاملاً مشخص */
+}
+
+.corner-effect:hover::after {
+  opacity: 0.6; /* دایره محو با کدورت ملایم */
+}

@@ -6,11 +6,100 @@
     <title>Document</title>
     <link href="./output.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.min.js"></script>
   </head>
   <body>
-    <div class="">
+    <div
+      class="background w-screen h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-800 to-black"
+    >
+      <!-- کارت اصلی با افکت گوشه‌ها -->
+      <div
+        id="glassCard"
+        class="corner-effect w-[450px] rounded-3xl bg-white/5 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
+      >
+        <div class="flex flex-col p-5">
+          <!-- Shamsi Date - بالا -->
+          <div class="text-center text-white/70 text-sm mb-2">Shamsi Date</div>
+
+          <!-- سه تا مربع بالا (شمسی: روز - ماه - سال) - قابل ویرایش -->
+          <div class="grid grid-cols-3 gap-3 mb-2">
+            <input
+              id="shamsiDay"
+              type="text"
+              placeholder="Day"
+              onkeydown="return onlyNumbers(event);"
+              oninput="validateDay(this)"
+              class="p-6 bg-slate-700/50 rounded-xl transition-all duration-200 hover:bg-slate-600/80 hover:ring-1 hover:ring-white/30 text-white/90 text-center outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            />
+            <input
+              id="shamsiMonth"
+              type="text"
+              placeholder="Month"
+              onkeydown="return onlyNumbers(event);"
+              oninput="validateMonth(this)"
+              class="p-6 bg-slate-700/50 rounded-xl transition-all duration-200 hover:bg-slate-600/80 hover:ring-1 hover:ring-white/30 text-white/90 text-center outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            />
+            <input
+              id="shamsiYear"
+              type="text"
+              placeholder="Year"
+              onkeydown="return onlyNumbers(event);"
+              oninput="validateYear(this)"
+              class="p-6 bg-slate-700/50 rounded-xl transition-all duration-200 hover:bg-slate-600/80 hover:ring-1 hover:ring-white/30 text-white/90 text-center outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            />
+          </div>
+
+          <!-- دو تا دکمه -->
+          <div class="flex justify-center gap-3 py-2">
+            <button
+              onclick="convertToGregorian()"
+              class="w-28 h-9 bg-white/10 border border-white/20 rounded-lg text-white/70 text-sm hover:bg-white/20 transition-all duration-200"
+            >
+              Convert
+            </button>
+            <button
+              onclick="swapDates()"
+              class="w-28 h-9 bg-white/10 border border-white/20 rounded-lg text-white/70 text-sm hover:bg-white/20 transition-all duration-200"
+            >
+              Swap
+            </button>
+          </div>
+
+          <!-- Gregorian Date - پایین -->
+          <div class="text-center text-white/70 text-sm mt-1 mb-2">
+            Gregorian Date
+          </div>
+
+          <!-- سه تا مربع پایین (میلادی: ماه - روز - سال) - غیرقابل ویرایش و خالی -->
+          <div class="grid grid-cols-3 gap-3 mb-2">
+            <div
+              id="gregorianMonth"
+              class="p-6 bg-slate-700/30 rounded-xl text-white/50 text-center flex items-center justify-center"
+            >
+              -
+            </div>
+            <div
+              id="gregorianDay"
+              class="p-6 bg-slate-700/30 rounded-xl text-white/50 text-center flex items-center justify-center"
+            >
+              -
+            </div>
+            <div
+              id="gregorianYear"
+              class="p-6 bg-slate-700/30 rounded-xl text-white/50 text-center flex items-center justify-center"
+            >
+              -
+            </div>
+          </div>
+
+          <!-- متن لورم ایپسوم -->
+          <div class="text-center text-white/40 text-xs mt-2 px-2 leading-5">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt.
+          </div>
+        </div>
+      </div>
     </div>
-    <script type="module" src="script.js"></script>
+
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
