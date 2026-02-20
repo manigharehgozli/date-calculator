@@ -25,10 +25,10 @@
   padding: 2px; /* Border thickness */
   background: radial-gradient(
     150px circle at var(--mouse-x, 30%) var(--mouse-y, 30%),
-    rgba(255, 255, 255, 0.9) 0%,    /* Bright center */
-    rgba(255, 255, 255, 0.6) 30%,    /* Near edge */
-    rgba(255, 255, 255, 0.2) 70%,    /* Fading out */
-    transparent 90%
+    rgba(255, 255, 255, 0.9) 0%,
+    /* Bright center */ rgba(255, 255, 255, 0.6) 30%,
+    /* Near edge */ rgba(255, 255, 255, 0.2) 70%,
+    /* Fading out */ transparent 90%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -49,8 +49,8 @@
   border-radius: 2rem;
   background: radial-gradient(
     130px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.25) 0%,    /* Faint */
-    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.25) 0%,
+    /* Faint */ rgba(255, 255, 255, 0.1) 30%,
     transparent 70%
   );
   pointer-events: none;

@@ -269,11 +269,11 @@ convertBtn.addEventListener("click", function () {
   const year = +inputYear.value;
   const month = +inputMonth.value;
   const day = +inputDay.value;
-  
+
   // Check what's written on top
   const topTitle = calculateCalendar.textContent;
-  console.log('top title:', topTitle);
-  
+  console.log("top title:", topTitle);
+
   if (topTitle === "GREGORIAN") {
     // Top is Gregorian, convert to Jalali
     const result = jalaali.toJalaali(year, month, day);
