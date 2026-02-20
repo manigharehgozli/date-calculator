@@ -9,25 +9,26 @@
   justify-content: center;
   align-items: center;
 }
-/* styles.css - بوردر مشخص، دایره محو */
+
+/* Glass card with corner light effect */
 .corner-effect {
   position: relative;
   isolation: isolate;
 }
 
-/* افکت بوردر اصلی - مشخص و شفاف */
+/* Main border effect - sharp and visible */
 .corner-effect::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 1.5rem;
-  padding: 2px; /* ضخامت بوردر */
+  padding: 2px; /* Border thickness */
   background: radial-gradient(
     150px circle at var(--mouse-x, 30%) var(--mouse-y, 30%),
-    rgba(255, 255, 255, 0.9) 0%,
-    /* مرکز روشن */ rgba(255, 255, 255, 0.6) 30%,
-    /* نزدیک لبه */ rgba(255, 255, 255, 0.2) 70%,
-    /* محو شدن */ transparent 90%
+    rgba(255, 255, 255, 0.9) 0%,    /* Bright center */
+    rgba(255, 255, 255, 0.6) 30%,    /* Near edge */
+    rgba(255, 255, 255, 0.2) 70%,    /* Fading out */
+    transparent 90%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -37,32 +38,33 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
-  /* بدون فیلتر بلور برای بوردر */
+  /* No blur filter for border */
 }
 
-/* افکت دایره محو - فقط برای نور زمینه */
+/* Blurred circle effect - just for background light */
 .corner-effect::after {
   content: "";
   position: absolute;
-  inset: -10px; /* پخش در فضای بیشتر */
+  inset: -10px; /* Spread over larger area */
   border-radius: 2rem;
   background: radial-gradient(
     130px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.25) 0%,
-    /* کم‌رنگ */ rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.25) 0%,    /* Faint */
+    rgba(255, 255, 255, 0.1) 30%,
     transparent 70%
   );
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
-  filter: blur(12px); /* دایره خیلی محو */
+  filter: blur(12px); /* Very blurred circle */
   z-index: 4;
 }
 
+/* Hover effects */
 .corner-effect:hover::before {
-  opacity: 1; /* بوردر کاملاً مشخص */
+  opacity: 1; /* Border becomes fully visible */
 }
 
 .corner-effect:hover::after {
-  opacity: 0.6; /* دایره محو با کدورت ملایم */
+  opacity: 0.6; /* Blurred circle with mild opacity */
 }
