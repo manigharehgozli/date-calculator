@@ -829,7 +829,7 @@ video {
 /* styles.css */
 
 .background {
-  background-image: url("/images/background.jpg");
+  background-image: url("background.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
