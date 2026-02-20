@@ -1,64 +1,59 @@
 # Persian Calendar Converter (Shamsi ↔ Gregorian)
 
-A simple, responsive **date converter** tool that converts dates between the **Persian (Jalali/Shamsi)** calendar and the **Gregorian** calendar.
+A simple, responsive date converter that switches between Persian (Jalali/Shamsi) and Gregorian calendars.
 
-This project was built to practice JavaScript logic, DOM manipulation, and handling bilingual (Persian/English) interfaces. The core conversion logic is **written by me**, using the excellent [jalaali-js](https://github.com/jalaali/jalaali-js) library via CDN for accurate calendar calculations.
+**This is 100% my own original project** — the entire idea, core logic, structure, validation, swap feature, and most of the code were created by me from scratch with my own thinking and effort. The UI design was built with help from AI (for faster styling and layout suggestions), but all functionality and key decisions are mine.
+
+If anyone wants to use, fork, modify, or share any part of this project, **please credit me** (manigharehgozli) as the original creator and link back to this repo or the live demo: https://date-calculatorpro.netlify.app/
 
 ### Live Demo
-- [View Live on Netlify](https://date-calculatorpro.netlify.app/)
+https://date-calculatorpro.netlify.app/
 
 ### Features
-- Bidirectional conversion: Gregorian → Shamsi and Shamsi → Gregorian
-- Separate input fields for Day, Month, Year in both calendars
-- **Convert** button to perform the conversion
-- **Swap** button to switch the direction (quickly flip between calendars)
-- Bilingual labels: English (GREGORIAN / SHAMSI) + Persian support
-- Clean, two-column layout (mobile-friendly and responsive)
-- Real-time conversion without page reload (vanilla JavaScript)
+- Two-way conversion: Gregorian to Shamsi and Shamsi to Gregorian
+- Separate inputs for day, month, year in both calendars
+- "Convert" button to run the conversion
+- "Swap" button to flip direction instantly
+- Bilingual English/Persian labels
+- Clean two-column layout, fully responsive (mobile-first)
+- Instant results with pure vanilla JavaScript (no page reload)
 
-### What I Learned / Built From Scratch
-This was an exciting personal project where I focused on writing the **core logic myself** while learning from great open-source tools.
+### What I Learned & Cool Things I Mastered
+This was one of my favorite personal projects because I built almost everything myself and learned a ton of practical, real-world JavaScript skills:
 
-- **Custom conversion logic**: I implemented the full flow:
-  - Reading inputs from separate day/month/year fields
-  - Validation of dates (valid ranges for months/days)
-  - Calling `toJalaali()` or `toGregorian()` from jalaali-js
-  - Displaying results back into the opposite set of inputs
-  - Handling the Swap feature to reverse direction instantly
-- **jalaali-js mastery**: Used via CDN (no build tools needed):
-  ```html
-  <script src="https://cdn.jsdelivr.net/npm/jalaali-js@1.2.8/dist/jalaali.min.js"></script>
-  ```
-  Relied heavily on:
+- **Writing custom date logic from scratch**: Handling separate day/month/year inputs, validating ranges (e.g., 1–31 days, 1–12 months, leap years in both calendars), and making sure conversions are accurate without relying on built-in Date quirks.
+- **Deep use of jalaali-js library via CDN**: No build tools needed — just `<script src="https://cdn.jsdelivr.net/npm/jalaali-js@1.2.8/dist/jalaali.min.js"></script>`. Mastered key functions like:
   - `toJalaali(gy, gm, gd)`
   - `toGregorian(jy, jm, jd)`
   - `isValidJalaaliDate(jy, jm, jd)`
-  Learned how reliable and performant this tiny library is for Persian calendar needs.
-- **Bilingual UI handling**: Managed Persian text direction (RTL) and labels smoothly.
-- **Vanilla JavaScript DOM skills**:
-  - `querySelector` / `querySelectorAll`
-  - Event listeners on buttons
-  - Updating input values dynamically
-  - Basic form validation and error handling (if any)
-- **Deployment & iteration**: Used Netlify for free, fast hosting with automatic deploys. Fixed path issues, 404 problems, and asset uploading along the way.
+  Understood how reliable and lightweight it is for Persian dates.
+- **Advanced vanilla JavaScript DOM manipulation**:
+  - Selecting multiple elements efficiently (`querySelector`, `querySelectorAll`)
+  - Adding event listeners to buttons
+  - Reading/updating input values dynamically
+  - Implementing the "Swap" feature by exchanging values between two sets of fields
+  - Basic form/input validation (prevent invalid dates)
+- **Bilingual & RTL handling**: Managed Persian text direction (right-to-left), label switching, and clean UI for both languages without frameworks.
+- **Responsive design & CSS best practices**: Built a mobile-friendly two-column layout that looks good on any screen size.
+- **Deployment real-world lessons**: Used Netlify for free hosting, fixed common issues like 404 errors, asset paths (e.g., images if added later), caching, and manual drag & drop deploys when needed.
+- **Problem-solving mindset**: Debugged conversion edge cases (leap years, month boundaries), handled user input errors gracefully, and iterated until everything felt smooth and reliable.
 
-This project helped me go from "I can use libraries" to "I can build a complete, functional, bilingual tool with my own logic".
+Overall, this project took me from basic JS knowledge to confidently building a complete, useful, bilingual tool entirely on my own (with AI helping only on UI polish).
 
 ### Tech Stack
-- **HTML5** (semantic structure)
-- **CSS** (custom styles + possibly Tailwind or plain CSS for responsiveness)
-- **Vanilla JavaScript** (no frameworks)
-- **jalaali-js** (via CDN – for accurate Shamsi/Gregorian conversions)
-- Deployed on **Netlify** (auto-build on git push)
+- HTML5 (semantic & accessible markup)
+- CSS (custom responsive styles)
+- Vanilla JavaScript (zero frameworks)
+- jalaali-js (via CDN – only external library)
+- Deployed on Netlify (auto-deploys from git)
 
-### Future Ideas / Possible Improvements
-- Add a "Today" button to auto-fill current date
-- Calculate age or difference between two dates
-- Support for leap year info display
-- Dark mode toggle
-- Input type="number" with min/max for better UX
-- Error messages for invalid dates
+### License & Usage
+My original work (manigharehgozli).  
+You’re welcome to view, learn from, fork, or use it **with proper credit**:
 
-Feel free to use, fork, or give feedback — خوش خوشحال می‌شم اگر کسی ازش استفاده کنه یا پیشنهادی داشته باشه! 🌙✨
+- Say: "Built by manigharehgozli" or "Original project by manigharehgozli"
+- Link: https://date-calculatorpro.netlify.app/ or this repo
 
-Thanks to the amazing **jalaali-js** community for making Persian date handling easy in JavaScript.
+Questions, suggestions, or collaborations? Feel free to reach out — I'd love to hear if it's useful to anyone! 🌙✨
+
+Big thanks to the jalaali-js creators for making Persian calendar math accurate and simple in JavaScript.
